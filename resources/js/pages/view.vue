@@ -169,7 +169,7 @@
       >
         <template  v-for="(deals, i) in deals_with">
           <div  :key="i">
-        <v-chip v-if="post.location != null" :href="'/search/'+post.location.slug+
+        <v-chip v-if="post.location != null" class="text-capitalize" :href="'/search/'+post.location.slug+
         '/'+textToSlug(deals.trim())">{{deals.trim()}}</v-chip>
         <v-chip v-else>{{deals}}</v-chip>
           </div>

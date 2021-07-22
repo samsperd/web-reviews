@@ -194,7 +194,9 @@
                       >
                         <v-icon color="light-blue lighten-3">mdi-twitter</v-icon>
                       </v-btn>
-                      <v-btn icon large target="blank" :href="'https://www.facebook.com/'+sponsored.facebook">
+                      <v-btn icon
+                      v-if="sponsored.facebook"
+                       large target="blank" :href="'https://www.facebook.com/'+sponsored.facebook">
                         <v-icon color="indigo">mdi-facebook</v-icon>
 
                       </v-btn>
@@ -326,7 +328,9 @@
                       >
                         <v-icon color="light-blue lighten-3">mdi-twitter</v-icon>
                       </v-btn>
-                      <v-btn icon large target="blank" :href="'https://www.facebook.com/'+post.facebook">
+                      <v-btn icon
+                      v-if="post.facebook"
+                      large target="blank" :href="'https://www.facebook.com/'+post.facebook">
                         <v-icon color="indigo">mdi-facebook</v-icon>
 
                       </v-btn>
@@ -407,70 +411,6 @@ export default {
                 });    
         }
     },
-    computed: {
-      // sponsoredGroups() {
-      //     const obj = {};
-      //     this.searched.forEach(option => {
-      //       if (option.featured === 1) {
-      //         if (!obj[option.slug+option.id]) {
-      //           obj[option.slug+option.id] = [];
-      //         }
-      //         obj[option.slug+option.id].push({
-      //           title: option.title,
-      //           category: option.category,
-      //           id: option.id, 
-      //           slug: option.slug,
-      //           whatsapp: option.whatsapp,
-      //           facebook: option.facebook,
-      //           twitter: option.twitter,
-      //           company_email: option.company_email,
-      //           company_number: option.company_number,
-      //           excerpt: option.excerpt,
-      //           rate: option.rate,
-      //           location: option.location,
-      //           image: option.image
-      //         })
-      //       }
-      //     })
-      //     return Object.entries(obj).map(([key, value]) => {
-      //       return {
-      //         label: key,
-      //         items: value,
-      //       }
-      //     })
-      // },
-      allResults() {
-          const obj = {};
-          this.searched.forEach(option => {
-            if (option.featured === 0) {
-              if (!obj[option.slug+option.id]) {
-                obj[option.slug+option.id] = [];
-              }
-              obj[option.slug+option.id].push({
-                title: option.title,
-                category: option.category,
-                id: option.id, 
-                slug: option.slug,
-                whatsapp: option.whatsapp,
-                facebook: option.facebook,
-                twitter: option.twitter,
-                company_email: option.company_email,
-                company_number: option.company_number,
-                excerpt: option.excerpt,
-                rate: option.rate,
-                location: option.location,
-                image: option.image
-              })
-            }
-          })
-          return Object.entries(obj).map(([key, value]) => {
-            return {
-              label: key,
-              items: value,
-            }
-          })
-      },
-      
-    },
+
 }
 </script>

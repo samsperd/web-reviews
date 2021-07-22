@@ -192,7 +192,9 @@
                             >
                               <v-icon color="light-blue lighten-3">mdi-twitter</v-icon>
                             </v-btn>
-                            <v-btn icon large target="blank" :href="'https://www.facebook.com/'+sponsored.facebook">
+                            <v-btn icon
+                            v-if="sponsored.facebook"
+                             large target="blank" :href="'https://www.facebook.com/'+sponsored.facebook">
                               <v-icon color="indigo">mdi-facebook</v-icon>
 
                             </v-btn>
@@ -322,7 +324,9 @@
                       >
                         <v-icon color="light-blue lighten-3">mdi-twitter</v-icon>
                       </v-btn>
-                      <v-btn icon large target="blank" :href="'https://www.facebook.com/'+post.facebook">
+                      <v-btn icon
+                      v-if="post.facebook"
+                      large target="blank" :href="'https://www.facebook.com/'+post.facebook">
                         <v-icon color="indigo">mdi-facebook</v-icon>
 
                       </v-btn>
