@@ -14,9 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+Route::group(['prefix' => 'auth'], function ()
+{
+    Route::post('signin', 'App\Http\Controllers\ApiAuth\SignInController');
+    Route::post('signout', 'App\Http\Controllers\ApiAuth\SignOutController');
+
+
+    Route::get('me', 'App\Http\Controllers\ApiAuth\MeController');
 });
+
 Route::get('posts', 'App\Http\Controllers\PostController@index');
 Route::get('location', 'App\Http\Controllers\PostController@searchLocation');
 Route::post('searching', 'App\Http\Controllers\PostController@searching');

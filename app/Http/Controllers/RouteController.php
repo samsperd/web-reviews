@@ -143,8 +143,8 @@ class RouteController extends Controller
             });
 
             $posts = $allposts->whereIn('location_id', $postsId)->where('status', '=', 'PUBLISHED')->with('category')->with('location')->get();
-            SEOMeta::setTitle('Browse the best online and social media businesses in '.$location->location);
-            SEOMeta::setDescription('See the best online businesses in '.$location->location);
+            SEOMeta::setTitle('Browse the best '.$location->location.' online businesses');
+            SEOMeta::setDescription('Get the best '.$location->location.' online businesses and their ratings');
             SEOMeta::setCanonical('https://www.businessgrills.com/browse-location/'.$slug);
         
             return view($this->getView('pages.browser'))->with(['posts' => $posts, 'slug' => $slug, 'location' => $location]);
@@ -175,7 +175,7 @@ class RouteController extends Controller
                                 ->with('category')
                                 ->with('location')
                                 ->where('title', 'LIKE', "%{$term}%")
-                                ->where('excerpt', 'LIKE', "%{$term}%")
+                                ->orWhere('excerpt', 'LIKE', "%{$term}%")
                                 ->orWhere('deals_with', 'LIKE', "%{$term}%")
                                 ->orWhere('meta_keywords', 'LIKE', "%{$term}%")
                                 ->orWhereHas('category', function($query) use ($term) {
@@ -185,7 +185,7 @@ class RouteController extends Controller
                                 ->get();
                 // $posts = $allposts->whereIn('location_id', $postsId)->where('status', '=', 'PUBLISHED')->with('location')->get();
                 SEOMeta::setTitle('Best online businesses related to '.$term.' in '.$findLocation->location);
-                SEOMeta::setDescription('See the best online businesses related to '.$term.' in '.$findLocation->location);
+                SEOMeta::setDescription('Get the best '.$findLocation->location.' online businesses related to '.$term);
                 SEOMeta::setCanonical('https://www.businessgrills.com/location-'.$location.'/'.$term);
     
 

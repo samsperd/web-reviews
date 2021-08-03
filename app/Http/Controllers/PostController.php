@@ -202,7 +202,7 @@ class PostController extends Controller
                                 ->with('location')
                                 ->with('category')
                                 ->where('title', 'LIKE', "%{$tikitiki}%")
-                                ->where('excerpt', 'LIKE', "%{$tikitiki}%")
+                                ->orWhere('excerpt', 'LIKE', "%{$tikitiki}%")
                                 ->orWhere('deals_with', 'LIKE', "%{$tikitiki}%")
                                 ->orWhere('meta_keywords', 'LIKE', "%{$tikitiki}%")
                                 ->orWhereHas('category', function($query) use ($tikitiki) {

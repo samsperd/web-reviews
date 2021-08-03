@@ -53,6 +53,7 @@
       <v-breadcrumbs
       light
       divider=">>"
+      class="px-1"
       >
         <v-breadcrumbs-item
         href="/"
@@ -117,6 +118,153 @@
       </div>
 
       <div class="subtitle-2" v-text="post.excerpt"></div>
+      <!-- <div>
+    <v-tabs
+      color="green darken-4"
+      centered
+    >
+      <v-tab class="col">Landscape</v-tab>
+      <v-tab class="col">Abstract</v-tab>
+
+      <v-tab-item
+        v-for="n in 2"
+        :key="n"
+      >
+        <v-container fluid>
+          <v-row>
+  <v-bottom-navigation
+    color="green"
+    grow
+  >
+    <template v-if="post.company_number">
+      <v-btn :href="'tel:'+post.company_number">
+        <span>Call</span>
+
+        <v-icon color="success">mdi-phone</v-icon>
+      </v-btn>
+    </template>
+    <template v-if="post.company_number">
+        <v-btn :href="'sms:'+post.company_number">
+          <span>Text</span>
+
+          <v-icon color="primary">mdi-message-text</v-icon>
+        </v-btn>
+    </template>
+
+    <template v-if="post.whatsapp">
+        <v-btn target="blank" :href="post.whatsapp">
+          <span>Whatsapp</span>
+
+          <v-icon color="success">mdi-whatsapp</v-icon>
+        </v-btn>
+    </template>
+
+    <template v-if="post.company_email">
+      <v-btn :href="'mailto:'+post.company_email">
+        <span>Email</span>
+
+        <v-icon color="red">mdi-email</v-icon>
+      </v-btn>
+    </template>
+  </v-bottom-navigation>
+
+
+
+
+
+            
+          </v-row>
+        </v-container>
+      </v-tab-item>
+    </v-tabs>        
+      </div> -->
+
+
+
+
+
+    <!-- <div>
+      <ul class="nav nav-tabs justify-content-end">
+        <li class="nav-item">
+          <a href="#" class="nav-link active">
+            Reviews
+          </a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active">
+          <v-row>
+          <v-col sm="12" md="6" lg="4">
+            <v-card>
+              <v-card-text>
+                <b>Foody
+                  
+                </b>
+              <v-rating
+                :value="post.rate"
+                dark
+                small
+                color="amber"
+                dense
+                half-increments
+                readonly
+                size="20"
+              ></v-rating>
+              
+                An onliine food delivery network situated at gregory university uturu
+              </v-card-text>
+            </v-card>
+          </v-col>
+          <v-col sm="12" md="6" lg="4">
+            <v-card>
+              <v-card-text>
+                <b>Foody
+                  
+                </b>
+              <v-rating
+                :value="post.rate"
+                dark
+                small
+                color="amber"
+                dense
+                half-increments
+                readonly
+                size="20"
+              ></v-rating>
+              
+                An onliine food delivery network situated at gregory university uturu
+              </v-card-text>
+            </v-card>
+          </v-col>
+          <v-col sm="12" md="6" lg="4">
+            <v-card>
+              <v-card-text>
+                <b>Foody
+                  
+                </b>
+              <v-rating
+                :value="post.rate"
+                dark
+                small
+                color="amber"
+                dense
+                half-increments
+                readonly
+                size="20"
+              ></v-rating>
+              
+                An onliine food delivery network situated at gregory university uturu
+              </v-card-text>
+            </v-card>
+          </v-col>
+          </v-row>
+
+
+        </div>
+
+      </div>
+    </div> -->
+      
       <v-divider></v-divider>
       <v-row>
   <v-bottom-navigation
@@ -160,7 +308,6 @@
     </v-card-text>
     
     <v-divider class="mx-4"></v-divider>
-
     <v-card-text class="h6 font-weight-bold" v-if="deals_with.length > 0">
         Deals with:
               <v-chip-group
@@ -177,6 +324,21 @@
       </v-chip-group>
 
     </v-card-text>
+    <!-- <v-divider class="mx-4"></v-divider> -->
+    <!-- <v-card-text>
+      <div>
+      <v-btn small outlined color="success">Reviews</v-btn>
+      </div>
+      <v-card>
+          
+        <v-card-title class="h6">
+          From a star
+        </v-card-title>
+        <v-card-subtitle>
+          This service is so nice... I might use them again in the future.
+        </v-card-subtitle>
+      </v-card>
+    </v-card-text> -->
 </v-row>
   </v-card>
       <!-- Embedded Page  -->
@@ -429,21 +591,6 @@
 
 
       </v-col>
-      <!-- <v-col cols="12" sm="4">
-        <v-card>
-          <v-card-title primary-title>
-            title
-          </v-card-title>
-        </v-card>
-      </v-col>
-      <v-col cols="12" sm="4">
-        <v-card>
-          <v-card-title primary-title>
-            title
-          </v-card-title>
-        </v-card>
-      </v-col> -->
-
     </v-row>
     </v-col>
   </v-container>

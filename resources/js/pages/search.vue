@@ -150,7 +150,7 @@
             >
               <v-icon color="light-blue lighten-3">mdi-twitter</v-icon>
             </v-btn>
-            <v-btn icon large target="blank" :href="'https://www.facebook.com/'+post.facebook">
+            <v-btn v-if="post.facebook" icon large target="blank" :href="'https://www.facebook.com/'+post.facebook">
               <v-icon color="indigo">mdi-facebook</v-icon>
 
             </v-btn>
