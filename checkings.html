@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaTNtreoGnhtm-rpU-kr1hAOTxq-QaRhg&libraries=places"></script>
+    <style>
+        input {
+          height: 30px;
+          padding-left: 10px;
+          border-radius: 4px;
+          border: 1px solid rgb(186, 178, 178);
+          box-shadow: 0px 0px 12px #EFEFEF;
+        }
+      </style>
+</head>
+<body>
+    <h1>Map Checkings</h1>
+    <input type="text" id="autocomplete"/>
+
+    <script>
+      var input = document.getElementById('autocomplete');
+      var autocomplete = new google.maps.places.Autocomplete(input);
+    </script>
+</body>
+</html>

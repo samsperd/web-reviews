@@ -15,6 +15,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhYCIdEOa37wRZqeqoOYflP-6LU7ylOD8&libraries=places"></script>
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
 
     <!-- Fonts -->

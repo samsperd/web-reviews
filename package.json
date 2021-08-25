@@ -27,6 +27,7 @@
         "material-design-icons-iconfont": "^6.1.0",
         "sass": "^1.32.8",
         "sass-loader": "^10.1.1",
+        "vue-google-autocomplete": "^1.1.2",
         "vue-infinite-loading": "^2.4.5",
         "vue-instagram-embed": "^1.0.0",
         "vue-resource": "^1.5.3",

@@ -34,7 +34,7 @@
             solo
             prepend-inner-icon="mdi-map-marker"
             :items="allLocations"
-            item-text="location"
+            item-text="name"
             return-object
             placeholder="Location"
             append-icon=""
@@ -66,6 +66,7 @@ export default {
         all() {
         axios.get('/api/location')
             .then((response)=>{
+                console.log(response);
                 this.allLocations = response.data.locations;
             }).catch(err => {
 

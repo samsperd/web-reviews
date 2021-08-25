@@ -404,8 +404,8 @@
           class="col-12 bottom-0"
           flat
         >
-            <v-card-title class="h6 font-weight-bold my-0">
-              Contact them at
+            <v-card-title class="h6 my-0">
+              Profiles
             </v-card-title>
           <!-- References -->
           <v-row>

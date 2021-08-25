@@ -125,7 +125,8 @@
   </v-row>
       </section>
   <section class="container py-5 mb-12 mt-12">
-    <h5 class="container">Browse internet businesses in {{located.location}} by categories</h5>
+
+  <h5 class="container">Browse internet businesses in {{located.location}} by categories</h5>
   <v-row class=" ">
     <!-- <v-col
       cols="6"
@@ -263,16 +264,17 @@ export default {
   props: ['welcometitle', 'sourced'],
   components:{
     HomeSearch,
-    Wrapper
+    Wrapper,
   },
   data() {
     return {
-
+      address: '',
       valid: false,
       locate: '',
       located: this.locate || {location: 'Nigeria', slug: 'nigeria'},
     }
   },
+
 }
 </script>
 <style lang="sass" scoped>

@@ -8,6 +8,10 @@ use App\Models\Location;
 use App\Models\Tag;
 use App\Models\Category;
 use App\Models\Page;
+use App\Models\Geo_Continents;
+use App\Models\Place;
+use Khsing\World\World;
+use Khsing\World\Models\Continent;
 
 class PostController extends Controller
 {
@@ -25,8 +29,34 @@ class PostController extends Controller
 
     public function searchLocation()
     {
-        $locations = Location::where('status', '=', 'publish')->orderBy('slug', 'DESC')->get();
-        return response()->json(['locations' => $locations]);
+        // $continents = Continent::all();
+        // $locations = [];
+        // $countries = [];
+        // $subdivisions = [];
+        // foreach ($continents as $continent) {
+        //     $locations[] = $continent;
+        // }
+        // foreach ($continents as $continent) {
+        //     $countries[] = $continent->children();
+        // }
+        // foreach ($countries as $country) {
+        //     foreach ($country as $cantry) {
+        //         $locations[] = $cantry;
+        //         $subdivisions[] = $cantry;
+        //     }
+        // }
+        // foreach ($subdivisions as $subdivision) {
+        //     foreach ($subdivision->children() as $sub) {
+        //         $locations[] = $sub;
+        //     }
+        // }
+
+        // dd($locations);
+        // return response()->json(['locations' => $locations]);
+
+
+        $continents = Place::Continents();
+        dd($continents);
     }
     /**
      * Show the form for creating a new resource.

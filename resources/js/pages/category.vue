@@ -225,11 +225,25 @@
                 <div
                   v-for="(post, index) in searched" :key="index"
                 >
-                  <v-card
+                    <v-card
                     class="text-decoration-none"
                     flat
                     :href="'/business/'+post.slug"
                   >
+                  <v-list-item-group>
+                      <v-list-item class="py-0" style="min-height: unset !important;" v-if="post.location">
+                        <v-list-item-icon class="justify-content-end m-0" style="width: 44px !important; margin-right: 11px !important;">
+                          <v-icon small class="mt-1" color="grey darken-1">mdi-stop</v-icon>
+                        </v-list-item-icon>
+
+                        <v-list-item-content class="py-0">
+                          <v-list-item-title class="small">
+                            <small class="grey--text text--darken-1">{{post.location.location}}</small>
+                            
+                          </v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+        
                       <v-list-item class="grow" >
                         <v-list-item-avatar color="grey darken-3">
                           <v-img
@@ -240,32 +254,25 @@
                         </v-list-item-avatar>
 
                         <v-list-item-content>
-                          <v-list-item-title style="white-space: normal !important;" v-text="post.title"></v-list-item-title>
-                      <span class="text-muted small">
-                        <template v-for="(category, index) in post.category">
-                          <template v-if="index > 0">
-                            ,
-                          </template>
-                          <span :key="index">{{category.name}}</span>
-                        </template>
+                          <v-list-item-title class="" style="white-space: normal !important; font-weight: 600 !important; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important">
+                            {{post.title}}
+                          </v-list-item-title>
+                          <span class="text-muted small">
+                            <template v-for="(category, index) in post.category">
+                              <template v-if="index > 0">
+                                ,
+                              </template>
+                              <span :key="index">{{category.name}}</span>
+                            </template>
 
-                        
-                      </span>
-                        </v-list-item-content>
-                        <v-row
-                          align="center"
-                          justify="end"
-                        >
-                        <v-icon>mdi-navigation</v-icon>
-                        {{post.location.location}}
-                        </v-row>
-                      </v-list-item>
-                    <v-card-text class="col-12">
+                            
+                          </span>
                       <v-row
-                        align="center"
-                        class="mx-0"
+                      class="col"
                       >
-                        <v-rating
+                      <template>
+                      <h6 class="text-muted" style=" font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important">4.5 </h6>
+                                                <v-rating
                           :value="post.rate"
                           dark
                           color="amber"
@@ -274,77 +281,85 @@
                           readonly
                           size="14"
                         ></v-rating>
-
-                        <div class="grey--text ml-4">
-                          4.5 (1)
-                        </div>
+                      <small class="h6 text-muted" style="white-space: normal !important; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important">(1)</small>
+                      </template>
+                      <v-spacer></v-spacer>
+                        <template>
+                      <!-- <v-btn v-if="post.company_number" class="flexcol" icon small>
+                        <v-icon class="card" color="success">mdi-phone</v-icon>
+                        <span>
+                        Call
+                        </span>
+                      </v-btn> -->
+                      <template>
+                      <v-spacer></v-spacer>
+                      <v-btn class="flexcol" icon small>
+                        <v-icon color="success">mdi-whatsapp</v-icon>
+                        <span>
+                        Whatsapp
+                        </span>
+                      </v-btn>
+                      </template>
+                        </template>
                       </v-row>
-                    </v-card-text>
-                    <v-card-subtitle>
-                      {{post.excerpt}}
-                    </v-card-subtitle>
+                          
+                        </v-list-item-content>
+                      </v-list-item>
+      </v-list-item-group>
                     <v-card-actions>
-                    <v-row
-                    justify="end"
-                    >
-                      <v-btn 
-                    color="success lighten-2"
-                    large
-                    v-if="post.company_number"
-                    :href="'tel:'+post.company_number"
-                      icon>
-                        <v-icon color="dark">mdi-phone-outgoing-outline</v-icon>
-                      </v-btn>
-                      <v-btn 
-                    color="success lighten-3"
-                    large
-                    v-if="post.company_email"
-                    :href="'mailto:'+post.company_email"
-                    target="blank"
-                      icon>
-                        <v-icon color="dark">mdi-email-outline</v-icon>
-                      </v-btn>
-                      <v-btn 
-                    color="deep-purple lighten-2"
-                    large
-                    v-if="post.instagram"
-                    target="blank"
-                    :href="'https://www.instagram.com/'+post.instagram"    
-                      icon>
-                        <v-icon color="pink darken-1">mdi-instagram</v-icon>
-                      </v-btn>
-                      <v-btn 
-                    color="deep-purple lighten-2"
-                      icon
-                      large
-                      target="blank"
-                    v-if="post.twitter"
-                    :href="'https://www.twitter.com/'+post.twitter"    
-                      
-                      >
-                        <v-icon color="light-blue lighten-3">mdi-twitter</v-icon>
-                      </v-btn>
-                      <v-btn icon
-                      v-if="post.facebook"
-                      large target="blank" :href="'https://www.facebook.com/'+post.facebook">
-                        <v-icon color="indigo">mdi-facebook</v-icon>
-
-                      </v-btn>
-                      <v-btn 
-                    color="success"
-                    large
-                    v-if="post.whatsapp"
-                    :href="post.whatsapp"
-                    target="blank"
-                      icon>
-                        <v-icon color="dark">mdi-whatsapp</v-icon>
+                      <v-row class="px-3 py-0" justify="start">
+                        <v-btn
+                        plain
+                        class="text-lowercase"
+                          v-if="post.instagram"
+                        >
+                          <v-icon color="pink darken-3" left>
+                            mdi-instagram
+                          </v-icon>
+                          {{post.instagram}}
+                        </v-btn>
+                        <v-btn
+                        plain
+                        class="text-lowercase"
+                        v-else-if="post.facebook"
+                        >
+                          <v-icon
+                          
+                          small
+                          color="indigo" left>
+                            mdi-facebook
+                          </v-icon>
+                          {{post.facebook}}
+                        </v-btn>
+                        <v-btn
+                        plain
+                        class="text-lowercase"
+                        v-if="post.twitter"
+                        >
+                          <v-icon small color="cyan" left>
+                            mdi-twitter
+                          </v-icon>
+                          {{post.twitter}}
+                        </v-btn>
+                        <v-btn
+                        plain
+                        class="text-lowercase"
+                        v-else-if="post.facebook"
+                        >
+                          <v-icon
+                          
+                          small
+                          color="indigo" left>
+                            mdi-facebook
+                          </v-icon>
+                          {{post.facebook}}
+                        </v-btn>
                         
-                      </v-btn>
-
-                    </v-row>
-
-
-                    </v-card-actions>
+                      </v-row>
+                   </v-card-actions>
+                    <v-card-subtitle class="text-capitalize" style="color: rgba(0,0,0,0.8) !important;">
+                      {{post.deals_with}}
+                    </v-card-subtitle>
                   </v-card>
                   <v-divider></v-divider>
                 </div>
