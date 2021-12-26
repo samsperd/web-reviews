@@ -11,7 +11,7 @@
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
     {{-- @stack('header') --}}
     {!! SEOMeta::generate() !!}
-    <link rel="canonical" href="http://businessgrills.com/" />
+    <link rel="canonical" href="http://webreviews.com/" />
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
